@@ -18,13 +18,14 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - uses: hmarr/debug-action@v1.0.0
+      - run: echo "Hello there '${{github.event.head_commit.message}}' !"
         
   # This workflow contains a single job called "build"
   release:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     
-    if: ${{ endsWith(github.event.head_commit.message, 'Rugvip/le-patch') }}
+    if: ${{ endsWith(github.event.head_commit.message, 'Rugvip/le-patch\n\n') }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:      
