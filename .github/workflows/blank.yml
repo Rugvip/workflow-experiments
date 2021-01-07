@@ -19,6 +19,7 @@ jobs:
     steps:
       - uses: hmarr/debug-action@v1.0.0
       - run: echo "Hello there '${{github.event.head_commit.message}}' !"
+      - run: echo "Hello wat '${{toJson(github.event.head_commit.message)}}' !"
         
   # This workflow contains a single job called "build"
   release:
