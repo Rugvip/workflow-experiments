@@ -3,6 +3,9 @@ const { resolve: resolvePath } = require('path');
 const { promises: fs } = require('fs');
 const { promisify } = require('util');
 
+const parentRef = process.env.COMMIT_SHA_BEFORE || 'HEAD^';
+console.log('DEBUG: parentRef =', parentRef)
+
 const execFile = promisify(execFileCb);
 
 async function runPlain(cmd, ...args) {
@@ -23,7 +26,6 @@ async function runPlain(cmd, ...args) {
 }
 
 async function main() {
-  const parentRef = 'HEAD^';
   process.cwd(resolvePath(__dirname, '..'));
 
   const diff = await runPlain(
