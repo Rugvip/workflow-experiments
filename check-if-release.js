@@ -34,7 +34,6 @@ async function main() {
     '--name-only',
     parentRef,
     'packages/*/package.json',
-    'plugins/*/package.json',
   );
   console.log('DEBUG: diff =', diff);
   const packageList = diff.split(/^(.*)$/gm).filter(s => s.trim());
