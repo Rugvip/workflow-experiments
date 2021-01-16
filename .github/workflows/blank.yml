@@ -21,6 +21,8 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - uses: actions/checkout@v2
+      - name: fetch previous commit
+        run: git fetch origin '${{ github.event.before }}'
       - uses: hmarr/debug-action@v1.0.0
       - run: echo "Hello there '${{github.event.head_commit.message}}' !"
       - run: echo "Hello wat '${{toJson(github.event.head_commit.message)}}' !"
