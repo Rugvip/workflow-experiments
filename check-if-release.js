@@ -33,7 +33,7 @@ async function main() {
     'diff',
     '--name-only',
     parentRef,
-    'packages/*/package.json',
+    "'packages/*/package.json'",
   );
   console.log('DEBUG: diff =', diff);
   const packageList = diff.split(/^(.*)$/gm).filter(s => s.trim());
